@@ -12,10 +12,19 @@ export interface LoginCredentials {
   password: string;
 }
 
-export interface LoginResponse {
+export interface RegisterCredentials {
+  name: string;
+  email: string;
+  password: string;
+}
+
+export interface AuthResponse {
   token: string;
   user: User;
 }
+
+export type LoginResponse = AuthResponse;
+export type RegisterResponse = AuthResponse;
 
 export interface AuthSession {
   token: string;

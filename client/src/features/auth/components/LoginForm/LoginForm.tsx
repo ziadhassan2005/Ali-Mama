@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   BrandLogo,
   Button,
@@ -101,9 +101,24 @@ export function LoginForm() {
 
         <Spacer size="xs" />
 
+        {error ? (
+          <Text variant="label-md" color="danger" className={styles.error}>
+            {error}
+          </Text>
+        ) : null}
+
         <Button type="submit" variant="primary" size="md" fullWidth disabled={isSubmitting}>
           {isSubmitting ? "Signing in…" : "Sign in"}
         </Button>
+
+        <div className={styles.footerRow}>
+          <Text variant="label-md" color="secondary">
+            Need an account?
+          </Text>
+          <Link to="/register" className={styles.link}>
+            Create account
+          </Link>
+        </div>
       </form>
     </>
   );

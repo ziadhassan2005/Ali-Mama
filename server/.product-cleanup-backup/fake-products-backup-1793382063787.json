@@ -1,0 +1,57 @@
+[
+  {
+    "_id": "6ae4d1044e75540e12b73e57",
+    "name": "title-de8a94fd-8fdd-421c-8065-6bf33ec137a2",
+    "description": "desc-3c0a8b63-12ee-45bb-8fe5-c4baf8435c6d",
+    "category": "Furniture",
+    "importBatchId": "escuela-import-1000",
+    "source": "escuela",
+    "sourceProductId": "172",
+    "createdAt": "2026-10-30T17:16:52.536Z",
+    "deletionReason": "Synthetic import record: randomized product name (true) and placeholder description (desc-3c0a8b63-12ee-45bb-8fe5-c4baf8435c6d)."
+  },
+  {
+    "_id": "6ae4d1044e75540e12b73eee",
+    "name": "asdasd",
+    "description": "asdasd",
+    "category": "Electronics",
+    "importBatchId": "escuela-import-1000",
+    "source": "escuela",
+    "sourceProductId": "323",
+    "createdAt": "2026-10-30T17:16:52.540Z",
+    "deletionReason": "Synthetic import record: randomized product name (true) and placeholder description (asdasd)."
+  },
+  {
+    "_id": "6ae4d1044e75540e12b73f06",
+    "name": "title-f33d537b-edb4-4f0f-8b61-ead540037c02",
+    "description": "desc-af17a5df-6367-47c8-a93e-4d4ac9f74cec",
+    "category": "Clothes",
+    "importBatchId": "escuela-import-1000",
+    "source": "escuela",
+    "sourceProductId": "348",
+    "createdAt": "2026-10-30T17:16:52.541Z",
+    "deletionReason": "Synthetic import record: randomized product name (true) and placeholder description (desc-af17a5df-6367-47c8-a93e-4d4ac9f74cec)."
+  },
+  {
+    "_id": "6ae4d1044e75540e12b73f82",
+    "name": "test1",
+    "description": "asdasdasd",
+    "category": "Clothes",
+    "importBatchId": "escuela-import-1000",
+    "source": "escuela",
+    "sourceProductId": "472",
+    "createdAt": "2026-10-30T17:16:52.544Z",
+    "deletionReason": "Synthetic import record: randomized product name (true) and placeholder description (asdasdasd)."
+  },
+  {
+    "_id": "6ae4d1044e75540e12b73f83",
+    "name": "title-ad6ddd57-97eb-437d-b9c9-f6ddf6bfe1ba",
+    "description": "desc-1973e8d3-8e8b-4b27-a676-0e59bec0c1aa",
+    "category": "Miscellaneous",
+    "importBatchId": "escuela-import-1000",
+    "source": "escuela",
+    "sourceProductId": "473",
+    "createdAt": "2026-10-30T17:16:52.544Z",
+    "deletionReason": "Synthetic import record: randomized product name (true) and placeholder description (desc-1973e8d3-8e8b-4b27-a676-0e59bec0c1aa)."
+  }
+]

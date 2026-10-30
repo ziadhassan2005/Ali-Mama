@@ -1,0 +1,34 @@
+:root {
+  /* Button */
+  --button-height-sm: 36px;
+  --button-height-md: 44px;
+  --button-height-lg: 52px;
+  --button-padding-x-sm: 12px;
+  --button-padding-x-md: 16px;
+  --button-padding-x-lg: 24px;
+
+  /* Input */
+  --input-height: 46px;
+  --input-padding-x: 14px;
+
+  /* Card */
+  --card-padding: 16px;
+  --card-radius: 18px;
+
+  /* Navigation */
+  --nav-height: 72px;
+  --sidebar-width: 240px;
+
+  /* Product filters */
+  --price-range-max: 1000;
+  --products-per-page: 6;
+
+  /* Breakpoints (for reference in media queries) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-default: 200ms ease;
+}

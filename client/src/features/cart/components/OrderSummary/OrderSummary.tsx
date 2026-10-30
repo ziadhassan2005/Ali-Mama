@@ -1,16 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Divider, Icon, Spinner, Text } from "../../../../design-system";
+import { useAuth } from "../../../../context/AuthContext";
 import { useCart } from "../../../../context/CartContext";
 import { useToast } from "../../../../context/ToastContext";
 import { formatPrice } from "../../../products/utils/formatPrice";
 import { cx } from "../../../../design-system/utils/cx";
+import { createOrderRequest } from "../../../../api/orders.api";
 import styles from "./OrderSummary.module.css";
 
 type CheckoutState = "idle" | "loading" | "success";
 
 export function OrderSummary() {
-  const { subtotal, clearCart } = useCart();
+  const { items, subtotal, clearCart } = useCart();
+  const { token, user } = useAuth();
   const { showToast } = useToast();
+  const navigate = useNavigate();
   const [checkoutState, setCheckoutState] = useState<CheckoutState>("idle");
 
   const isProcessing = checkoutState !== "idle";
@@ -18,17 +23,40 @@ export function OrderSummary() {
   async function handleCheckout() {
     if (isProcessing) return;
 
+    if (!user || !token) {
+      showToast("Please sign in to complete checkout.", "error");
+      navigate("/login", { replace: false, state: { from: { pathname: "/checkout" } } });
+      return;
+    }
+
+    if (items.length === 0) {
+      showToast("Your cart is empty.", "error");
+      return;
+    }
+
     setCheckoutState("loading");
 
-    await new Promise((resolve) => window.setTimeout(resolve, 2000));
+    try {
+      await createOrderRequest(
+        {
+          items: items.map((item) => ({
+            productId: item.productId,
+            quantity: item.quantity,
+          })),
+        },
+        token
+      );
 
-    setCheckoutState("success");
-    clearCart();
-    showToast("Test purchase successful", "success");
-
-    window.setTimeout(() => {
+      setCheckoutState("success");
+      clearCart();
+      showToast("Order placed successfully.", "success");
+      navigate("/account/orders", { replace: true });
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Unable to complete checkout.";
+      showToast(message, "error");
       setCheckoutState("idle");
-    }, 2000);
+    }
   }
 
   return (
@@ -96,7 +124,7 @@ export function OrderSummary() {
         <div className={styles.secure}>
           <Icon name="lock" size="sm" />
           <Text variant="micro" color="secondary">
-            Secure checkout powered by ShopFlow
+            Secure checkout powered by Ali-Mama
           </Text>
         </div>
       </div>

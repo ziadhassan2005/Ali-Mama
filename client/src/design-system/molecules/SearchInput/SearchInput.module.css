@@ -7,14 +7,14 @@
   top: 50%;
   left: var(--space-md);
   transform: translateY(-50%);
-  color: var(--color-secondary);
+  color: var(--color-on-surface-variant);
   pointer-events: none;
 }
 
 .input {
   padding-left: 40px;
   border-radius: var(--radius-md);
-  background-color: var(--color-surface);
+  background-color: #171717;
 }
 
 .compact .input {
@@ -39,7 +39,7 @@
   min-width: 0;
   max-width: 192px;
   padding: var(--space-xs) var(--space-sm);
-  background-color: var(--color-surface-container-low);
+  background-color: #1d1d1d;
   border: var(--border-width-default) solid var(--color-outline-variant);
   border-radius: var(--radius-default);
 }
@@ -64,7 +64,7 @@
   max-width: 300px;
   height: 40px;
   padding-inline: var(--space-md);
-  background-color: var(--color-surface-container-low);
+  background-color: #1d1d1d;
   border: var(--border-width-default) solid transparent;
   border-radius: var(--radius-full);
   transition:
@@ -74,8 +74,8 @@
 }
 
 .navbarWrapper:focus-within {
-  background-color: var(--color-bg-primary);
-  border-color: var(--color-outline-variant);
+  background-color: #1b1b1b;
+  border-color: rgba(198, 166, 107, 0.44);
   box-shadow: 0 0 0 3px var(--color-focus-ring);
 }
 

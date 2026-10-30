@@ -1,0 +1,61 @@
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: rgba(255, 253, 251, 0.8);
+  border: 1px solid rgba(141, 77, 45, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(29, 31, 34, 0.04);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-md);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.filterButton {
+  display: inline-flex;
+  align-self: flex-start;
+}
+
+.sort {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .actions {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  .sort {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .filterButton {
+    display: none;
+  }
+}

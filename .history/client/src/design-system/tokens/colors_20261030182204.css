@@ -1,0 +1,83 @@
+:root {
+  /* Neutral surfaces */
+  --color-surface: #111111;
+  --color-surface-dim: #191919;
+  --color-surface-bright: #202020;
+  --color-surface-container-lowest: #111111;
+  --color-surface-container-low: #191919;
+  --color-surface-container: #202020;
+  --color-surface-container-high: #292929;
+  --color-surface-container-highest: #2f2f2f;
+  --color-surface-variant: #272624;
+
+  /* Text */
+  --color-on-surface: #f5f2ec;
+  --color-on-surface-variant: #aaa69f;
+  --color-inverse-surface: #f5f2ec;
+  --color-inverse-on-surface: #111111;
+
+  /* Borders and dividers */
+  --color-outline: #33312d;
+  --color-outline-variant: #33312d;
+
+  /* Brand accent - restrained premium highlight */
+  --color-surface-tint: #c6a66b;
+  --color-primary: #c6a66b;
+  --color-on-primary: #121110;
+  --color-primary-container: #c6a66b;
+  --color-on-primary-container: #121110;
+  --color-inverse-primary: #d8bb87;
+  --color-primary-fixed: #ead7af;
+  --color-primary-fixed-dim: #c6a66b;
+  --color-on-primary-fixed: #111111;
+  --color-on-primary-fixed-variant: #d8bb87;
+
+  /* Secondary neutrals */
+  --color-secondary: #b8b2ab;
+  --color-on-secondary: #111111;
+  --color-secondary-container: #242220;
+  --color-on-secondary-container: #f4efe9;
+  --color-secondary-fixed: #e4dfd8;
+  --color-secondary-fixed-dim: #b8b2ab;
+  --color-on-secondary-fixed: #111111;
+  --color-on-secondary-fixed-variant: #9c958f;
+
+  /* Tertiary */
+  --color-tertiary: #9bb5a7;
+  --color-on-tertiary: #111111;
+  --color-tertiary-container: #1f2d29;
+  --color-on-tertiary-container: #dfeae4;
+  --color-tertiary-fixed: #dfeae4;
+  --color-tertiary-fixed-dim: #9bb5a7;
+  --color-on-tertiary-fixed: #111111;
+  --color-on-tertiary-fixed-variant: #7f978d;
+
+  /* Feedback */
+  --color-error: #d97979;
+  --color-on-error: #111111;
+  --color-error-container: #2d1f1f;
+  --color-on-error-container: #f4d2d2;
+  --color-success: #6eaa82;
+  --color-on-success: #111111;
+  --color-warning: #d6ad65;
+  --color-on-warning: #111111;
+
+  /* Background */
+  --color-background: #111111;
+  --color-on-background: #f5f2ec;
+
+  /* Semantic aliases */
+  --color-bg-primary: #191919;
+  --color-bg-surface: #111111;
+  --color-text-primary: #f5f2ec;
+  --color-text-secondary: #aaa69f;
+  --color-muted: #77736d;
+  --color-border: #33312d;
+
+  /* Category pill */
+  --color-pill-bg: rgba(198, 166, 107, 0.14);
+  --color-pill-text: #e8d3a7;
+
+  /* Focus */
+  --color-focus-ring: rgba(198, 166, 107, 0.25);
+}

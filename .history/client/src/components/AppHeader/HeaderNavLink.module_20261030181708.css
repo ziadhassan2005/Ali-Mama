@@ -1,0 +1,28 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-label-md-weight);
+  color: var(--color-on-surface-variant);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-on-surface);
+  background-color: rgba(217, 184, 137, 0.08);
+}
+
+.active {
+  color: var(--color-primary-container);
+  background-color: rgba(217, 184, 137, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(217, 184, 137, 0.15);
+  font-weight: 600;
+}
+
+.active:hover {
+  color: var(--color-primary-container);
+  background-color: rgba(217, 184, 137, 0.08);
+}

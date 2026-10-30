@@ -13,8 +13,13 @@
     background-color var(--transition-fast),
     border-color var(--transition-fast),
     color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
   white-space: nowrap;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
 }
 
 .button:disabled {
@@ -42,28 +47,29 @@
 .primary {
   background-color: var(--color-primary-container);
   color: var(--color-on-primary);
+  box-shadow: 0 12px 22px rgba(198, 166, 107, 0.18);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: var(--color-primary);
+  background-color: var(--color-inverse-primary);
 }
 
 .primary:active:not(:disabled) {
-  background-color: var(--color-on-primary-fixed-variant);
+  background-color: var(--color-primary-fixed-dim);
 }
 
 .secondary {
-  background-color: var(--color-bg-primary);
+  background-color: #1d1d1d;
   color: var(--color-on-surface);
   border-color: var(--color-border);
 }
 
 .secondary:hover:not(:disabled) {
-  background-color: var(--color-surface-container-low);
+  background-color: #242424;
 }
 
 .secondary:active:not(:disabled) {
-  background-color: var(--color-surface-container);
+  background-color: #2a2a2a;
 }
 
 .danger {
@@ -72,11 +78,11 @@
 }
 
 .danger:hover:not(:disabled) {
-  background-color: var(--color-error);
+  background-color: #e08d8d;
 }
 
 .danger:active:not(:disabled) {
-  background-color: var(--color-on-error-container);
+  background-color: #c66666;
 }
 
 .ghost {
@@ -85,11 +91,11 @@
 }
 
 .ghost:hover:not(:disabled) {
-  background-color: var(--color-pill-bg);
+  background-color: rgba(198, 166, 107, 0.08);
 }
 
 .ghost:active:not(:disabled) {
-  background-color: var(--color-primary-fixed);
+  background-color: rgba(198, 166, 107, 0.12);
 }
 
 .fullWidth {

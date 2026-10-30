@@ -11,9 +11,9 @@ export function AppFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.brand}>
-        <Text variant="label-md">ShopFlow</Text>
+        <Text variant="label-md">Ali-Mama</Text>
         <Text variant="label-sm" color="secondary">
-          © 2026 ShopFlow. All rights reserved.
+          © 2026 Ali-Mama. All rights reserved.
         </Text>
       </div>
       <div className={styles.links}>

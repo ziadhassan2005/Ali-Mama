@@ -3,6 +3,11 @@
   flex-direction: column;
   gap: var(--space-lg);
   margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: #1b1b1b;
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
 }
 
 .controls {
@@ -40,6 +45,7 @@
     flex-direction: row;
     align-items: center;
     width: auto;
+    flex-wrap: wrap;
   }
 
   .sort {

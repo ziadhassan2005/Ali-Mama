@@ -18,7 +18,7 @@
 
 .button:hover {
   color: var(--color-primary-container);
-  background-color: var(--color-surface-container-low);
+  background-color: rgba(198, 166, 107, 0.08);
 }
 
 .badge {

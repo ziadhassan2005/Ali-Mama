@@ -3,17 +3,19 @@
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-md);
-  background-color: var(--color-bg-primary);
-  border: var(--border-width-default) solid var(--color-outline-variant);
-  border-radius: var(--radius-xl);
+  background: #1d1d1d;
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
   transition:
     border-color var(--transition-fast),
     opacity var(--transition-fast),
-    transform var(--transition-fast);
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .row:hover {
-  border-color: color-mix(in srgb, var(--color-primary-container) 30%, transparent);
+  border-color: rgba(198, 166, 107, 0.34);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.14);
 }
 
 .row.removing {
@@ -25,8 +27,8 @@
   width: 72px;
   height: 72px;
   object-fit: cover;
-  border-radius: var(--radius-default);
-  background-color: var(--color-surface-container);
+  border-radius: 16px;
+  background: #202020;
   flex-shrink: 0;
 }
 
@@ -72,5 +74,5 @@
 }
 
 .deleteButton:hover {
-  background-color: color-mix(in srgb, var(--color-error-container) 20%, transparent);
+  background-color: rgba(217, 121, 121, 0.08);
 }

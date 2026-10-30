@@ -21,8 +21,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            cd ~/shopflow
+            cd ~/ali-mama
             git pull origin main
             npm install
             npm run build:server
-            pm2 restart shopflow-api --update-env
+            pm2 restart ali-mama-api --update-env

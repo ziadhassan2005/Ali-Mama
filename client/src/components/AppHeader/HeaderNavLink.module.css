@@ -12,17 +12,17 @@
 
 .link:hover {
   color: var(--color-on-surface);
-  background-color: color-mix(in srgb, var(--color-surface-container) 60%, transparent);
+  background-color: rgba(198, 166, 107, 0.08);
 }
 
 .active {
   color: var(--color-primary-container);
-  background-color: var(--color-bg-primary);
-  box-shadow: 0 1px 2px rgba(26, 28, 29, 0.06);
+  background-color: rgba(198, 166, 107, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(198, 166, 107, 0.15);
   font-weight: 600;
 }
 
 .active:hover {
   color: var(--color-primary-container);
-  background-color: var(--color-bg-primary);
+  background-color: rgba(198, 166, 107, 0.08);
 }

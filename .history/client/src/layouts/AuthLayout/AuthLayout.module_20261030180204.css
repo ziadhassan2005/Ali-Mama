@@ -1,0 +1,54 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5efe9 0%, #f7f3ee 100%);
+}
+
+.hero {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: 50%;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(141, 77, 45, 0.28), rgba(29, 31, 34, 0.08));
+  mix-blend-mode: multiply;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.56);
+  backdrop-filter: blur(8px);
+}
+
+.inner {
+  width: 100%;
+  max-width: 420px;
+  padding-block: var(--space-xl);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    display: block;
+  }
+
+  .content {
+    width: 50%;
+    padding: var(--space-xl);
+  }
+}

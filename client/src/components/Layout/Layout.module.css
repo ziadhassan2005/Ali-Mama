@@ -2,12 +2,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background);
+  background: #111111;
   overflow-x: hidden;
 }
 
 .body {
   flex: 1;
   min-width: 0;
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--nav-height) + 8px);
 }

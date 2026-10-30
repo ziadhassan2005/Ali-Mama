@@ -8,15 +8,15 @@
   --button-padding-x-lg: 24px;
 
   /* Input */
-  --input-height: 44px;
-  --input-padding-x: 12px;
+  --input-height: 46px;
+  --input-padding-x: 14px;
 
   /* Card */
   --card-padding: 16px;
-  --card-radius: 12px;
+  --card-radius: 18px;
 
   /* Navigation */
-  --nav-height: 64px;
+  --nav-height: 72px;
   --sidebar-width: 240px;
 
   /* Product filters */

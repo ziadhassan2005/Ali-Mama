@@ -1,10 +1,12 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Avatar,
   Badge,
   BrandLogo,
+  Button,
+  Divider,
   Icon,
-  IconButton,
   Link,
   SearchInput,
   cx,
@@ -26,14 +28,159 @@ function getInitials(name: string): string {
     .join("");
 }
 
-export function AppHeader() {
+function UserMenu() {
   const { user, logout } = useAuth();
+  const { itemCount } = useCart();
+  const navigate = useNavigate();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
+
+  function handleNavigate(path: string) {
+    setIsOpen(false);
+    navigate(path);
+  }
+
+  function handleLogout() {
+    setIsOpen(false);
+    logout();
+    navigate("/login", { replace: true });
+  }
+
+  if (!user) {
+    return null;
+  }
+
+  const displayName = user.name?.trim() || user.email.split("@")[0];
+
+  return (
+    <div className={styles.userMenu} ref={menuRef}>
+      <button
+        type="button"
+        className={styles.userButton}
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
+        aria-controls="ali-mama-user-menu"
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <Avatar initials={getInitials(user.name)} className={styles.userAvatar} />
+        <span className={styles.userName}>{displayName}</span>
+        <Icon
+          name={isOpen ? "expand_less" : "expand_more"}
+          size="sm"
+          className={cx(styles.userChevron, isOpen && styles.userChevronOpen)}
+        />
+      </button>
+
+      {isOpen ? (
+        <div
+          id="ali-mama-user-menu"
+          className={styles.menu}
+          role="menu"
+          aria-label="User account menu"
+        >
+          <div className={styles.menuHeader}>
+            <Avatar initials={getInitials(user.name)} className={styles.menuAvatar} />
+            <div className={styles.menuUserMeta}>
+              <span className={styles.menuUserName}>{user.name}</span>
+              <span className={styles.menuUserEmail}>{user.email}</span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className={styles.menuItem}
+            role="menuitem"
+            onClick={() => handleNavigate("/account")}
+          >
+            <Icon name="person" size="sm" className={styles.menuItemIcon} />
+            <span>My Account</span>
+          </button>
+
+          {isAdmin(user) ? (
+            <button
+              type="button"
+              className={styles.menuItem}
+              role="menuitem"
+              onClick={() => handleNavigate("/admin")}
+            >
+              <Icon name="dashboard" size="sm" className={styles.menuItemIcon} />
+              <span>Admin Dashboard</span>
+            </button>
+          ) : null}
+
+          <button
+            type="button"
+            className={styles.menuItem}
+            role="menuitem"
+            onClick={() => handleNavigate("/account/orders")}
+          >
+            <Icon name="receipt_long" size="sm" className={styles.menuItemIcon} />
+            <span>My Orders</span>
+          </button>
+
+          <button
+            type="button"
+            className={styles.menuItem}
+            role="menuitem"
+            aria-label={`Shopping cart with ${itemCount} items`}
+            onClick={() => handleNavigate("/checkout")}
+          >
+            <Icon name="shopping_cart" size="sm" className={styles.menuItemIcon} />
+            <span>Shopping Cart</span>
+            {itemCount > 0 ? <span className={styles.menuItemBadge}>{itemCount}</span> : null}
+          </button>
+
+          <Divider className={styles.menuDivider} />
+
+          <button
+            type="button"
+            className={cx(styles.menuItem, styles.logoutMenuItem)}
+            role="menuitem"
+            onClick={handleLogout}
+          >
+            <Icon name="logout" size="sm" className={styles.menuItemIcon} />
+            <span>Logout</span>
+          </button>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+export function AppHeader() {
+  const { user } = useAuth();
   const { itemCount } = useCart();
   const { filters, setSearch } = useProductFiltersContext();
   const location = useLocation();
+  const navigate = useNavigate();
   const isProductsActive =
     location.pathname === "/" || location.pathname.startsWith("/products/");
   const isCheckoutActive = location.pathname === "/checkout";
+  const isOrdersActive = location.pathname.startsWith("/account/orders");
 
   return (
     <header className={styles.header}>
@@ -48,6 +195,11 @@ export function AppHeader() {
         <HeaderNavLink to="/checkout" active={isCheckoutActive}>
           Checkout
         </HeaderNavLink>
+        {user ? (
+          <HeaderNavLink to="/account/orders" active={isOrdersActive}>
+            My Orders
+          </HeaderNavLink>
+        ) : null}
       </nav>
 
       <div className={styles.center}>
@@ -76,22 +228,24 @@ export function AppHeader() {
         <HeaderCartButton itemCount={itemCount} />
 
         {user ? (
-          <div className={styles.userCluster}>
+          <>
             {isAdmin(user) ? (
               <Badge variant="success" className={styles.adminBadge}>
                 Admin
               </Badge>
             ) : null}
-            <Avatar initials={getInitials(user.name)} />
-            <IconButton
-              label="Logout"
-              className={cx(styles.actionButton, styles.logoutButton)}
-              onClick={logout}
-            >
-              <Icon name="logout" size="sm" />
-            </IconButton>
+            <UserMenu />
+          </>
+        ) : (
+          <div className={styles.authActions}>
+            <Button variant="secondary" size="sm" onClick={() => navigate("/login")}>
+              Login
+            </Button>
+            <Button variant="primary" size="sm" onClick={() => navigate("/register")}>
+              Register
+            </Button>
           </div>
-        ) : null}
+        )}
       </div>
     </header>
   );

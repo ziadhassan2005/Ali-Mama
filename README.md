@@ -1,6 +1,6 @@
-# ShopFlow
+# Ali-Mama
 
-ShopFlow is a full-stack e-commerce application built as an npm workspaces monorepo. The React frontend provides product browsing, authentication, a per-user shopping cart, and a checkout flow; the Express API manages products, users, and JWT-protected admin operations backed by MongoDB.
+Ali-Mama is a full-stack e-commerce application built as an npm workspaces monorepo. The React frontend provides product browsing, authentication, a per-user shopping cart, and a checkout flow; the Express API manages products, users, and JWT-protected admin operations backed by MongoDB.
 
 **Production deployment** (S3 + EC2 + GitHub Actions) is documented in [DEPLOYMENT.md](./DEPLOYMENT.md).
 
@@ -99,7 +99,7 @@ Shared infrastructure lives in `config/db.ts` (MongoDB connection), `auth/jwt.mi
 ## Project Structure
 
 ```
-shopflow/
+ali-mama/
 ├── DEPLOYMENT.md             # Production deploy guide (S3, EC2, CI/CD)
 ├── package.json              # Root workspace scripts
 ├── .github/workflows/
@@ -144,8 +144,8 @@ shopflow/
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/forexlord/shopflow
-cd shopflow
+git clone https://github.com/forexlord/ali-mama
+cd ali-mama
 npm install
 ```
 
@@ -352,7 +352,7 @@ The JWT payload includes `userId` and `role`. Login response `user` object also 
 
 ## Production & deployment
 
-ShopFlow is deployed with:
+Ali-Mama is deployed with:
 
 - **Frontend** — Amazon S3 (static website hosting)
 - **Backend** — Amazon EC2 with PM2

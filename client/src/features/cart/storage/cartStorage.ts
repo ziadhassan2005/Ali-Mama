@@ -1,7 +1,7 @@
 import type { CartItem } from "../../../context/CartContext";
 
 function getCartKey(userId: string): string {
-  return `shopflow_cart_${userId}`;
+  return `ali_mama_cart_${userId}`;
 }
 
 export function loadUserCart(userId: string): CartItem[] {

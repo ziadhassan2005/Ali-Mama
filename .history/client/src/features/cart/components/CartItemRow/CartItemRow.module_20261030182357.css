@@ -1,0 +1,78 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: #1d1d1d;
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  transition:
+    border-color var(--transition-fast),
+    opacity var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.row:hover {
+  border-color: rgba(198, 166, 107, 0.34);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.14);
+}
+
+.row.removing {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 16px;
+  background: #202020;
+  flex-shrink: 0;
+}
+
+.imagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-outline);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.meta {
+  margin-top: var(--space-xs);
+}
+
+.actions {
+  margin-top: var(--space-xs);
+}
+
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xs);
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-error);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.deleteButton:hover {
+  background-color: rgba(217, 121, 121, 0.08);
+}

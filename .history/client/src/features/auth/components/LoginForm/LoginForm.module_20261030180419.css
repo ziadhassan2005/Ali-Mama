@@ -1,0 +1,55 @@
+.brand {
+  margin-bottom: var(--space-xl);
+}
+
+.header {
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  margin-bottom: var(--space-xs);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(141, 77, 45, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(29, 31, 34, 0.04);
+}
+
+.passwordLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.passwordField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.error {
+  margin: 0;
+}

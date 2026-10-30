@@ -1,0 +1,47 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-size: var(--font-label-sm-size);
+  font-weight: var(--font-label-sm-weight);
+  line-height: var(--font-label-sm-line-height);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-sm);
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.micro {
+  font-size: var(--font-micro-size);
+  font-weight: var(--font-micro-weight);
+  line-height: var(--font-micro-line-height);
+  letter-spacing: var(--font-micro-letter-spacing);
+}
+
+.category {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-pill-bg);
+  color: var(--color-pill-text);
+  font-size: var(--font-micro-size);
+  font-weight: var(--font-micro-weight);
+  line-height: var(--font-micro-line-height);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.success {
+  background-color: rgba(110, 170, 130, 0.12);
+  color: var(--color-success);
+}
+
+.danger {
+  background-color: rgba(217, 121, 121, 0.12);
+  color: var(--color-danger);
+}
+
+.neutral {
+  background-color: #242424;
+  color: var(--color-on-surface-variant);
+}

@@ -1,6 +1,6 @@
-# ShopFlow Deployment Guide
+# Ali-Mama Deployment Guide
 
-This document covers production deployment for ShopFlow using:
+This document covers production deployment for Ali-Mama using:
 
 - **Frontend** — static React build hosted on **Amazon S3** (website hosting)
 - **Backend** — Express API on **Amazon EC2**, managed with **PM2**
@@ -68,8 +68,8 @@ sudo npm install -g pm2
 4. Clone the repo and configure the server:
 
 ```bash
-git clone https://github.com/forexlord/shopflow.git ~/shopflow
-cd ~/shopflow
+git clone https://github.com/forexlord/ali-mama.git ~/ali-mama
+cd ~/ali-mama
 npm install
 ```
 
@@ -102,7 +102,7 @@ Only the **admin** account can create, edit, or delete products. Each user has t
 
 ```bash
 npm run build:server
-pm2 start server/dist/main.js --name shopflow-api
+pm2 start server/dist/main.js --name ali-mama-api
 pm2 save
 pm2 startup
 ```
@@ -116,13 +116,13 @@ curl http://localhost:5000/health
 
 ### 2. S3 bucket (frontend)
 
-1. Create an S3 bucket (e.g. `shopflow-frontend`).
+1. Create an S3 bucket (e.g. `ali-mama-frontend`).
 2. Enable **Static website hosting** (index document: `index.html`, error document: `index.html` for SPA routing).
 3. Set bucket policy to allow public read on objects (or use CloudFront later).
 4. Note the **website endpoint** URL, e.g.:
 
 ```
-http://shopflow-frontend.s3-website-us-east-1.amazonaws.com
+http://ali-mama-frontend.s3-website-us-east-1.amazonaws.com
 ```
 
 ### 3. IAM user (for GitHub Actions → S3)
@@ -174,7 +174,7 @@ Save the **Access Key ID** and **Secret Access Key** for GitHub secrets.
 
 Browsers block cross-origin requests from your S3 site to your EC2 API unless the backend allows it. `curl` and direct URL visits are **not** affected — only the React app in the browser.
 
-ShopFlow configures CORS in `server/src/app.ts` using the [`cors`](https://www.npmjs.com/package/cors) package:
+Ali-Mama configures CORS in `server/src/app.ts` using the [`cors`](https://www.npmjs.com/package/cors) package:
 
 - **No `CORS_ORIGIN` set** → all origins allowed (good for getting S3 + EC2 working quickly).
 - **`CORS_ORIGIN` set** → only listed origins allowed (recommended once your S3 URL is stable).
@@ -182,14 +182,14 @@ ShopFlow configures CORS in `server/src/app.ts` using the [`cors`](https://www.n
 Example:
 
 ```env
-CORS_ORIGIN=http://shopflow-frontend.s3-website-us-east-1.amazonaws.com
+CORS_ORIGIN=http://ali-mama-frontend.s3-website-us-east-1.amazonaws.com
 ```
 
 After changing `server/.env`, rebuild and restart:
 
 ```bash
 npm run build:server
-pm2 restart shopflow-api --update-env
+pm2 restart ali-mama-api --update-env
 ```
 
 ---
@@ -214,7 +214,7 @@ Go to **Repository → Settings → Secrets and variables → Actions** and add:
 | `VITE_API_URL` | EC2 API URL used at build time | `http://54.123.45.67:5000` |
 | `AWS_ACCESS_KEY_ID` | IAM access key for S3 deploy | — |
 | `AWS_SECRET_ACCESS_KEY` | IAM secret key | — |
-| `S3_BUCKET_NAME` | Target bucket name | `shopflow-frontend` |
+| `S3_BUCKET_NAME` | Target bucket name | `ali-mama-frontend` |
 
 #### Backend secrets
 
@@ -238,9 +238,9 @@ Go to **Repository → Settings → Secrets and variables → Actions** and add:
 **Backend (`backend.yml`):**
 
 1. SSH into EC2
-2. `cd ~/shopflow && git pull origin main`
+2. `cd ~/ali-mama && git pull origin main`
 3. `npm install && npm run build:server`
-4. `pm2 restart shopflow-api --update-env`
+4. `pm2 restart ali-mama-api --update-env`
 
 ### Path filters
 
@@ -257,17 +257,17 @@ Use these when you need to deploy without GitHub Actions or for debugging.
 ### Deploy backend manually (EC2)
 
 ```bash
-cd ~/shopflow
+cd ~/ali-mama
 git pull origin main
 npm install
 npm run build:server
-pm2 restart shopflow-api --update-env
+pm2 restart ali-mama-api --update-env
 ```
 
 ### Deploy frontend manually (from your machine)
 
 ```bash
-cd shopflow
+cd ali-mama
 npm install
 
 # Set API URL for this build
@@ -282,7 +282,7 @@ aws s3 sync client/dist/ s3://YOUR_BUCKET_NAME --delete
 
 ## Demo accounts (no sign-up API)
 
-ShopFlow has **login only** — there is no `POST /api/auth/register` or public endpoint to create users. All accounts come from the database seed (`npm run seed`).
+Ali-Mama has **login only** — there is no `POST /api/auth/register` or public endpoint to create users. All accounts come from the database seed (`npm run seed`).
 
 After seeding, two demo users are available:
 
@@ -294,7 +294,7 @@ After seeding, two demo users are available:
 To add or reset users in production, SSH into EC2 and re-run:
 
 ```bash
-cd ~/shopflow
+cd ~/ali-mama
 npm run seed
 ```
 
@@ -380,7 +380,7 @@ Each logged-in user has their **own cart**, stored on the server in MongoDB (not
 - Confirm `VITE_API_URL` in GitHub secrets matches your EC2 public IP and port.
 - Rebuild and redeploy the frontend after changing the API URL.
 - Check EC2 security group allows inbound TCP on port `5000`.
-- Verify PM2 is running: `pm2 status` and `pm2 logs shopflow-api`.
+- Verify PM2 is running: `pm2 status` and `pm2 logs ali-mama-api`.
 
 ### CORS errors in the browser console
 
@@ -397,7 +397,7 @@ This is almost always CORS or a wrong `VITE_API_URL` in the client build. The AP
 Re-run the seed on EC2 if needed:
 
 ```bash
-cd ~/shopflow
+cd ~/ali-mama
 npm run seed
 ```
 
@@ -405,7 +405,7 @@ npm run seed
 
 - Verify `EC2_HOST`, `EC2_USERNAME`, and `EC2_SSH_KEY` secrets.
 - Ensure the EC2 security group allows SSH from GitHub Actions (or `0.0.0.0/0` for testing).
-- Confirm the repo exists at `~/shopflow` on the instance and `shopflow-api` is registered in PM2.
+- Confirm the repo exists at `~/ali-mama` on the instance and `ali-mama-api` is registered in PM2.
 
 ---
 

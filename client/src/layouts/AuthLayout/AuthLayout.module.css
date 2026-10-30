@@ -1,6 +1,7 @@
 .layout {
   display: flex;
   min-height: 100vh;
+  background: #111111;
 }
 
 .hero {
@@ -21,11 +22,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background-color: color-mix(
-    in srgb,
-    var(--color-primary-container) 10%,
-    transparent
-  );
+  background: linear-gradient(135deg, rgba(198, 166, 107, 0.18), rgba(0, 0, 0, 0.45));
   mix-blend-mode: multiply;
 }
 
@@ -35,7 +32,8 @@
   justify-content: center;
   width: 100%;
   padding: var(--space-md);
-  background-color: var(--color-surface-container-lowest);
+  background: rgba(17, 17, 17, 0.76);
+  backdrop-filter: blur(8px);
 }
 
 .inner {

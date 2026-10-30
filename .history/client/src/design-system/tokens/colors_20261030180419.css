@@ -1,0 +1,84 @@
+:root {
+  /* Surface */
+  --color-surface: #f5f1eb;
+  --color-surface-dim: #d9d0c7;
+  --color-surface-bright: #fffdfb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4efe9;
+  --color-surface-container: #efe9e2;
+  --color-surface-container-high: #e7e0d8;
+  --color-surface-container-highest: #ded3c9;
+  --color-surface-variant: #e2d6ca;
+
+  /* On-surface */
+  --color-on-surface: #1d1f22;
+  --color-on-surface-variant: #575a5f;
+  --color-inverse-surface: #2b2d31;
+  --color-inverse-on-surface: #f4f1ee;
+
+  /* Outline */
+  --color-outline: #8f8c86;
+  --color-outline-variant: #d5c8bb;
+
+  /* Primary */
+  --color-surface-tint: #a15f3d;
+  --color-primary: #8d4d2d;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #a6623d;
+  --color-on-primary-container: #fff0e6;
+  --color-inverse-primary: #f6d7c3;
+  --color-primary-fixed: #f6e0d4;
+  --color-primary-fixed-dim: #e7baa0;
+  --color-on-primary-fixed: #3c1f12;
+  --color-on-primary-fixed-variant: #7a4328;
+
+  /* Secondary */
+  --color-secondary: #5a616a;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e8edf4;
+  --color-on-secondary-container: #444d5d;
+  --color-secondary-fixed: #edf3fa;
+  --color-secondary-fixed-dim: #d8e2f3;
+  --color-on-secondary-fixed: #1d2633;
+  --color-on-secondary-fixed-variant: #3d4959;
+
+  /* Tertiary */
+  --color-tertiary: #4d6d5a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #dfeee6;
+  --color-on-tertiary-container: #364f42;
+  --color-tertiary-fixed: #edf7f0;
+  --color-tertiary-fixed-dim: #d2e5d8;
+  --color-on-tertiary-fixed: #1d2b23;
+  --color-on-tertiary-fixed-variant: #3c5649;
+
+  /* Error */
+  --color-error: #b3261e;
+  --color-on-error: #ffffff;
+  --color-error-container: #f9d7d3;
+  --color-on-error-container: #7a1f1f;
+
+  /* Background */
+  --color-background: #f7f3ee;
+  --color-on-background: #1d1f22;
+
+  /* Semantic aliases (brand doc) */
+  --color-bg-primary: #fffdfb;
+  --color-bg-surface: #f5f1eb;
+  --color-text-primary: #1d1f22;
+  --color-text-secondary: #6a6d73;
+  --color-border: #e8ddd3;
+
+  /* Status */
+  --color-success: #1f9d72;
+  --color-on-success: #ffffff;
+  --color-danger: #d65f4d;
+  --color-on-danger: #ffffff;
+
+  /* Category pill */
+  --color-pill-bg: #f8e9df;
+  --color-pill-text: #8d4d2d;
+
+  /* Focus */
+  --color-focus-ring: rgba(141, 77, 45, 0.18);
+}

@@ -1,0 +1,44 @@
+.brand {
+    margin-bottom: var(--space-xl);
+}
+
+.header {
+    margin-bottom: var(--space-xl);
+}
+
+.title {
+    margin-bottom: var(--space-xs);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.passwordField {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.footerRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+.link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.error {
+    margin: 0;
+}

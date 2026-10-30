@@ -17,7 +17,7 @@ export function BrandLogo({ size = "default" }: BrandLogoProps) {
         variant={size === "compact" ? "headline-sm" : "headline-md"}
         className={styles.name}
       >
-        ShopFlow
+        Ali-Mama
       </Text>
     </div>
   );

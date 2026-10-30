@@ -1,7 +1,7 @@
 .card {
-  background-color: var(--color-bg-primary);
+  background: linear-gradient(180deg, rgba(18, 23, 28, 0.96) 0%, rgba(12, 15, 18, 0.96) 100%);
   border-radius: var(--card-radius);
-  transition: box-shadow var(--transition-default);
+  transition: box-shadow var(--transition-default), border-color var(--transition-default);
 }
 
 .flat {
@@ -19,6 +19,7 @@
 
 .interactive:hover {
   box-shadow: var(--shadow-card-hover);
+  border-color: rgba(198, 166, 107, 0.38);
 }
 
 .padding-none {
